@@ -103,7 +103,7 @@ class Weather extends prJSONfromURL{
         }
         @Override
         public String toString() {
-            String str = "Title: "+ getName() + " Temp " + getTempature() + " wind: " + getWindSpeed();
+            String str = "City Name: "+ getName() + "\nTemp: " + getTempature() + "\nWind: " + getWindSpeed() + "\nClouds:" + getClouds() + "\nVisibility: " + getVisibility() + "\nSunset Time: " + getSunset() + "\nSunrise Time: " + getSunrise() + "\nPressure:" + getPressure() + "\nHumidity:" + getHumidity();
             return str; 
         }
 
