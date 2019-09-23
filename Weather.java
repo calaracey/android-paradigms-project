@@ -1,14 +1,13 @@
-#import <"string.h>
-
+import java.io.*;
 class Weather extends prJSONfromURL{
 
         String name;
         String cloudDescription;
-        Double tempature;
-        int humidity;
-        int pressure;
-        int visibility;
-        float windSpeed;
+        double tempature;
+        long humidity;
+        long pressure;
+        long visibility;
+        double windSpeed;
         long sunset;
         long sunrise;
 
@@ -18,16 +17,16 @@ class Weather extends prJSONfromURL{
         Weather(){
         }
 
-        Weather(String name, Double temp, String clouds, int humidity, int pressure, int visibility, float wind, long sunrise, long sunset){
+        Weather(String name, double temp, String clouds, long humidity, long pressure, long visibility, double wind, long sunrise, long sunset){
             this.setName(name);
-            this.setTempature(temp);
+            this.setTemperature(temp);
             this.setClouds(clouds);
             this.setHumidity(humidity);
             this.setPressure(pressure);
             this.setVisibility(visibility);
             this.setWindSpeed(wind);
-            this.setSunriseTime(sunrise);
-            this.setSunsetTime(sunset);
+            this.setSunrise(sunrise);
+            this.setSunset(sunset);
         }
 
         String getName(){
@@ -38,11 +37,11 @@ class Weather extends prJSONfromURL{
             this.name = newName;
         }
 
-        Double getTempature() {
+        double getTempature() {
             return this.tempature;    
         }
 
-        void setTempature(Double newTemp) {
+        void setTemperature(double newTemp) {
             this.tempature = newTemp;
         }
 
@@ -50,39 +49,39 @@ class Weather extends prJSONfromURL{
             return this.cloudDescription;    
         }
 
-        void setClouds(String newClouds); {
-            this.cloudDescription = NewClouds;
+        void setClouds(String newClouds) {
+            this.cloudDescription = newClouds;
         }
 
-        int getHumidity() {
+        long getHumidity() {
             return this.humidity;    
         }
 
-        void setHumidity(int NewHumidity) {
+        void setHumidity(long NewHumidity) {
             this.humidity = NewHumidity;
         }
 
-        int getPressure() {
+        long getPressure() {
             return this.pressure;
         }
 
-        void setPressure(String NewPressure){
+        void setPressure(long NewPressure){
             this.pressure = NewPressure;
         }
         
-        int getGenre() {
+        long getVisibility() {
             return this.visibility;
         }
 
-        void setVisibility(String NewVisibility){
+        void setVisibility(long NewVisibility){
             this.visibility = NewVisibility;
         }
         
-        float getWindSpeed() {
+        double getWindSpeed() {
             return this.windSpeed;
         }
 
-        void setWindSpeed(float NewWindSpeed){
+        void setWindSpeed(double NewWindSpeed){
             this.windSpeed = NewWindSpeed;
         }
 

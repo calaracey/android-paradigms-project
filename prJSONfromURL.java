@@ -36,9 +36,6 @@ public class prJSONfromURL {
 			
 			 Object obj = new JSONParser().parse(jsonText); 
 			json = (JSONObject) obj;	
-			JSONObject main = (JSONObject) json.get("main");
-			Double temp = (double) main.get("temp");
-			System.out.println(temp);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -50,9 +47,26 @@ public class prJSONfromURL {
 	
 	
 	public static void main(String[] args) throws Exception {
-		String urlString = "http://api.openweathermap.org/data/2.5/weather?q=new%20york&APPID=f56113b7642a7b4074a4cb058700750f";
+		String cityName = "London";
+		String urlString = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=f56113b7642a7b4074a4cb058700750f";
 		JSONObject json = readJsonFromURL(urlString);
-		System.out.println(json.toString());
+		System.out.println(json);
+		JSONObject main = (JSONObject) json.get("main");
+		double temp = (double) main.get("temp");
+		long pressure = (long) main.get("pressure");
+		long humidity = (long) main.get("humidity");
+		long visibility = (long) json.get("visibility");
+		JSONObject wind = (JSONObject) json.get("wind");
+		double windSpeed = (double) wind.get("speed");
+		JSONObject sys = (JSONObject) json.get("sys");
+		long sunrise = (long) sys.get("sunrise");
+		long sunset = (long) sys.get("sunset");
+		JSONArray weatherJSON = (JSONArray) json.get("weather");
+		JSONObject weather1 = (JSONObject) weatherJSON.get(0);
+		String cloudDescription = (String) weather1.get("description");
+
+		Weather weather = new Weather(cityName, temp, cloudDescription, humidity, pressure, visibility, windSpeed, sunrise,sunset);
+		System.out.println(weather.toString());
 		
 		//String urlText = readStringFromURL(urlString);
 		//System.out.println(urlText);
