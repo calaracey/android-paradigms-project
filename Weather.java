@@ -4,7 +4,7 @@ class Weather extends prJSONfromURL{
 
         String name;
         String cloudDescription;
-        float tempature;
+        Double tempature;
         int humidity;
         int pressure;
         int visibility;
@@ -18,7 +18,7 @@ class Weather extends prJSONfromURL{
         Weather(){
         }
 
-        Weather(String name, float temp, String clouds, int humidity, int pressure, int visibility, float wind, long sunrise, long sunset){
+        Weather(String name, Double temp, String clouds, int humidity, int pressure, int visibility, float wind, long sunrise, long sunset){
             this.setName(name);
             this.setTempature(temp);
             this.setClouds(clouds);
@@ -38,11 +38,11 @@ class Weather extends prJSONfromURL{
             this.name = newName;
         }
 
-        int getTempature() {
+        Double getTempature() {
             return this.tempature;    
         }
 
-        void setTempature(float newTemp) {
+        void setTempature(Double newTemp) {
             this.tempature = newTemp;
         }
 
