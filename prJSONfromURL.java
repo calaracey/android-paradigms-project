@@ -24,9 +24,10 @@ public class prJSONfromURL {
 	
 
 	public static JSONObject readJsonFromURL(String urlString) throws IOException, Exception {
-		String jsonText = "";
+		JSONObject json = null;
 		URL url = new URL(urlString);
 		InputStream is = url.openStream();
+
 		try {
 			//buffered read
 			InputStreamReader isr = new InputStreamReader(is);
@@ -35,29 +36,16 @@ public class prJSONfromURL {
 			
 			 Object obj = new JSONParser().parse(jsonText); 
 			json = (JSONObject) obj;	
+			JSONObject main = (JSONObject) json.get("main");
+			Double temp = (double) main.get("temp");
+			System.out.println(temp);
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			is.close();
 		}
 		return json;
-	}	// end of method
-	
-	//converts url info to String using Scanner
-	public static String readStringFromURL(String urlString) throws IOException {
-	    String allString = "";
-	    try {
-	    	URL url = new URL(urlString);
-	    	InputStream is = url.openStream();
-		 
-	    	Scanner scanner = new Scanner(is);
-	    
-	        scanner.useDelimiter("\\A"); // start of string delimiter
-	        allString = scanner.hasNext() ? scanner.next() : ""; // now next takes all of it
-	    } catch(Exception e) {
-	    	e.printStackTrace();
-	    }
-		return allString;
 	}	// end of method
 	
 	
