@@ -9,5 +9,7 @@ android-paradigms-project/HelloOwenAndConnor2/app/src/main/java/com/example/hell
 
 android-paradigms-project/HelloOwenAndConnor2/app/src/main/res/layout/activityMain.xml
 
+android-paradigms-project/HelloOwenAndConnor2/app/src/main/androidManifest.xml
+
 
 
